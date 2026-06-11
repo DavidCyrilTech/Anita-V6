@@ -1,70 +1,147 @@
-<div align="center">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Anita V6 — Coming Soon</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
-<img src="https://capsule-render.vercel.app/api?type=venom&height=280&text=ANITA%20V6&fontSize=90&color=0:000000,100:1a0030&fontColor=ffffff&stroke=6c3483&strokeWidth=1&animation=fadeIn" width="100%"/>
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f5;
+    font-family: 'Share Tech Mono', monospace;
+    padding: 2rem;
+  }
 
-<br/>
-<br/>
+  .title {
+    font-size: clamp(32px, 8vw, 64px);
+    letter-spacing: 14px;
+    color: #111;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeUp 1.2s ease forwards 0.3s;
+  }
 
-> *"They said V5 was the peak. They were wrong."*
+  .sub {
+    font-size: 13px;
+    letter-spacing: 6px;
+    color: #888;
+    margin-top: 10px;
+    opacity: 0;
+    animation: fadeUp 1.2s ease forwards 0.7s;
+  }
 
-<br/>
+  .divider {
+    width: 0;
+    height: 1px;
+    background: #aaa;
+    margin: 2.5rem auto;
+    animation: expand 1s ease forwards 1.1s;
+  }
 
-**Queen Anita V6 is under construction.**
-Built from scratch. No shortcuts. No rush.
+  .countdown {
+    display: flex;
+    gap: clamp(1rem, 4vw, 2.5rem);
+    align-items: flex-start;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards 1.4s;
+  }
 
-<br/>
+  .unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
 
----
+  .num {
+    font-size: clamp(28px, 8vw, 52px);
+    color: #111;
+    letter-spacing: 2px;
+    line-height: 1;
+    transition: color 0.15s;
+  }
 
-## What's changing
+  .num.tick { color: #aaa; }
 
-V5 was good. V6 is different.
+  .lbl {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #999;
+    text-transform: uppercase;
+  }
 
-Every weak point in the old codebase is being torn out and rebuilt — the session system, the command engine, the anti-ban layer. The things that used to break won't break anymore.
+  .colon {
+    font-size: clamp(24px, 6vw, 42px);
+    color: #aaa;
+    padding-top: 2px;
+    animation: blink 1s step-end infinite;
+  }
 
-New stuff coming that V5 never had:
+  .tagline {
+    margin-top: 2.5rem;
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: #999;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards 1.8s;
+  }
 
-- AI-powered auto replies
-- Web dashboard to manage your bot without touching code
-- Smarter group management
-- Built-in broadcast & scheduler
-- Cleaner deploy flow across all platforms
-- And a lot more that's not ready to be talked about yet
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes expand {
+    from { width: 0; opacity: 0; }
+    to   { width: 60px; opacity: 1; }
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+  }
+</style>
+</head>
+<body>
 
-<br/>
+<div class="title">ANITA V6</div>
+<div class="sub">DAVID CYRIL TECH</div>
+<div class="divider"></div>
 
----
-
-## When?
-
-When it's ready.
-
-Not rushing this one. V6 will speak for itself when it drops.
-
-<br/>
-
-**Star this repo** to get notified the moment it's live. →  ⭐
-
-<br/>
-
----
-
-## In the meantime
-
-V5 is still fully active and maintained.
-
-➜ **[Deploy Anita V5](https://github.com/DavidCyrilTech/Anita-V5)**
-
-<br/>
-
----
-
-## Stay connected
-
-**[WhatsApp Channel](https://whatsapp.com/channel/0029VaeRru3ADTOEKPCPom0L)** · **[Telegram](https://t.me/davidcyriltechs)** · **[YouTube](https://www.youtube.com/@DavidCyril_TECH)**
-
-<br/>
-
-— David Cyril Tech
-
+<div class="countdown">
+  <div class="unit"><span class="num" id="d">00</span><span class="lbl">days</span></div>
+  <div class="colon">:</div>
+  <div class="unit"><span class="num" id="h">00</span><span class="lbl">hours</span></div>
+  <div class="colon">:</div>
+  <div class="unit"><span class="num" id="m">00</span><span class="lbl">min</span></div>
+  <div class="colon">:</div>
+  <div class="unit"><span class="num" id="s">00</span><span class="lbl">sec</span></div>
 </div>
+
+<div class="tagline">Something is coming</div>
+
+<script>
+  const target = new Date('2025-12-31T00:00:00');
+  function pad(n) { return String(n).padStart(2, '0'); }
+  function tick() {
+    const diff = target - new Date();
+    if (diff <= 0) return;
+    const sEl = document.getElementById('s');
+    sEl.classList.add('tick');
+    setTimeout(() => sEl.classList.remove('tick'), 150);
+    document.getElementById('d').textContent = pad(Math.floor(diff / 86400000));
+    document.getElementById('h').textContent = pad(Math.floor((diff % 86400000) / 3600000));
+    document.getElementById('m').textContent = pad(Math.floor((diff % 3600000) / 60000));
+    sEl.textContent = pad(Math.floor((diff % 60000) / 1000));
+  }
+  tick();
+  setInterval(tick, 1000);
+</script>
+</body>
+</html>
