@@ -14,5 +14,5 @@ markdown
 <img src="PASTE_YOUR_GIF_URL_HERE" alt="V6 Countdown"/>
 Once you have the GIF URL, send it to me and I'll drop it straight into your README file.
 
-<img src="https://i.countdownmail.com/53flfh.gif" style="width:100%!important;max-width:802px!important;" border="0" alt="countdownmail.com"/>
+<img src="https://i.countdownmail.com/53flfh.gif" style="width:100%!important;max-width:802px!important;" border="0" alt="cou"/>
 
