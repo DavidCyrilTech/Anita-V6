@@ -9,6 +9,24 @@
 
 <br/>
 
+---
+
+<br/>
+
+<!-- Countdown Timer -->
+<h3>⏳ Dropping In</h3>
+
+<br/>
+
+<a href="https://github.com/DavidCyrilTech/Anita-V6">
+  <img src="https://i.countdownmail.com/2uq4l3.gif" border="0" alt="countdownmail.com"/>
+</a>
+
+<br/>
+<br/>
+
+---
+
 **Queen Anita V6 is under construction.**
 Built from scratch. No shortcuts. No rush.
 
@@ -43,7 +61,7 @@ Not rushing this one. V6 will speak for itself when it drops.
 
 <br/>
 
-**Star this repo** to get notified the moment it's live. →  ⭐
+**Star this repo** to get notified the moment it's live. → ⭐
 
 <br/>
 
